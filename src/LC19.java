@@ -9,8 +9,9 @@ public class LC19 {
             }
             else dist++;
         }
-        if (first.next==null) return null;
-
+        if (dist==n+1)
+            first.next=first.next.next;
+        else head=head.next;
         return head;
     }
     public static void main(String[] args) {

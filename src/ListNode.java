@@ -9,10 +9,10 @@ public class ListNode {
     public static String toString(ListNode listNode) {
         String s="";
         while (listNode!=null){
-            s+="{"+
-                    "val=" + listNode.val +
-                    '}'+"->";
+            s+="{"+ listNode.val +'}';
             listNode=listNode.next;
+            if(listNode!=null )
+                s+="->";
         }
         return s;
     }
