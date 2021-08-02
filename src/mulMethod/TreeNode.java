@@ -1,3 +1,5 @@
+package mulMethod;
+
 public class TreeNode {
       int val;
       TreeNode left;
