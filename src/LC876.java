@@ -19,6 +19,6 @@ public class LC876 {
             listNode=listNode.next;
         }
         ListNode mid=middleNode(head.next);
-        System.out.println(ListNode.toString(mid));
+        System.out.println(mid);
     }
 }

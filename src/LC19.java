@@ -22,6 +22,6 @@ public class LC19 {
             listNode=listNode.next;
         }
         head=head.next;
-        System.out.println(ListNode.toString(removeNthFromEnd(head,1)));
+        System.out.println(removeNthFromEnd(head,1));
     }
 }

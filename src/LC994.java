@@ -37,8 +37,8 @@ public class LC994 {
 
     public static void main(String[] args) {
         LC994 lc994=new LC994();
-//        int[][] grid={{2, 1, 1}, {0, 1, 1}, {1, 0, 1}};
-        int[][] grid={{0,2}};
+        int[][] grid={{2, 1, 1}, {0, 1, 1}, {1, 0, 1}};
+//        int[][] grid={{0,2}};
         System.out.println(lc994.orangesRotting(grid));
     }
 }
