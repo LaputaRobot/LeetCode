@@ -6,34 +6,33 @@ import java.util.Queue;
 public class LC46 {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
-        ArrayDeque path = new ArrayDeque();
-        for (int i = 0; i < nums.length; i++) {
-            path.add(nums[i]);
-            dfs(nums, path, res);
-            path.removeLast();
-        }
+        ArrayList<Integer> path = new ArrayList<>();
+        dfs(nums, 0, path, res);
         return res;
     }
 
-    public void dfs(int[] nums, ArrayDeque path, List res) {
-        if (path.size() == nums.length) {
+    public void dfs(int[] nums, int start, ArrayList<Integer> path, List<List<Integer>> res) {
+        if (start == nums.length) {
             res.add(new ArrayList<>(path));
-            return;
-        } else {
-            for (int num :
-                    nums) {
-                if (!path.contains(num)) {
-                    path.addLast(num);
-                    dfs(nums,path,res);
-                    path.removeLast();
-                }
-            }
+        }
+        for (int i = start; i < nums.length; i++) {
+            exchange(nums, i, start);
+            path.add(nums[start]);
+            dfs(nums, start+1, path, res);
+            path.remove(path.size() - 1);
+            exchange(nums, i, start);
         }
     }
 
+    public void exchange(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
     public static void main(String[] args) {
-        LC46 lc46=new LC46();
-        int[] nums=new int[]{1,2};
+        LC46 lc46 = new LC46();
+        int[] nums = new int[]{1, 2, 3,4};
         System.out.println(lc46.permute(nums));
     }
 }

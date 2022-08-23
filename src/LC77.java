@@ -6,19 +6,19 @@ public class LC77 {
         if (k <= 0 || n < k) {
             return result;
         }
-        Queue path=new ArrayDeque();
-        dfs(n,k,1, (Deque) path,result);
+        Stack<Integer> path=new Stack<>();
+        dfs(n,k,1, path,result);
         return  result;
     }
-    public void dfs(int n,int k, int start,Deque path,List<List<Integer>> res){
+    public void dfs(int n,int k, int start,Stack<Integer> path,List<List<Integer>> res){
         if (path.size()==k){
             res.add(new ArrayList<>(path));
             return;
         }
         for (int i = start; i <= n-(k-path.size())+1; i++) {
-            path.addLast(i);
+            path.push(i);
             dfs(n,k,i+1,path,res);
-            path.removeLast();
+            path.pop();
         }
     }
 
